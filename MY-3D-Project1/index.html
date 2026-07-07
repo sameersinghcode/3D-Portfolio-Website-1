@@ -4,11 +4,245 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <meta name="description" content="Sameer Singh — cinematic videographer & filmmaker. A futuristic 3D portfolio of films, commercials and visual stories." />
+    <title>SAMEER SINGH — Cinematic Videographer</title>
   </head>
   <body>
-    
-    <canvas id="bg"></canvas>
+    <!-- 3D scene -->
+    <canvas id="bg" aria-hidden="true"></canvas>
+
+    <!-- Cinematic overlays -->
+    <div class="grain" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="letterbox letterbox--top" aria-hidden="true"></div>
+    <div class="letterbox letterbox--bottom" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <!-- Custom cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+      <div class="loader__inner">
+        <div class="loader__logo">SS<span>&#47;&#47;</span>FILMS</div>
+        <div class="loader__bar"><div class="loader__fill" id="loader-fill"></div></div>
+        <div class="loader__status" id="loader-status">INITIALIZING RENDER ENGINE…</div>
+      </div>
+    </div>
+
+    <!-- Scroll progress -->
+    <div class="progress" aria-hidden="true"><div class="progress__fill" id="progress-fill"></div></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <a class="nav__logo" href="#hero" data-hover>SS<span>&#47;&#47;</span>FILMS</a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#showreel" data-hover><span class="nav__num">01</span>Showreel</a></li>
+        <li><a href="#work" data-hover><span class="nav__num">02</span>Work</a></li>
+        <li><a href="#about" data-hover><span class="nav__num">03</span>About</a></li>
+        <li><a href="#services" data-hover><span class="nav__num">04</span>Services</a></li>
+        <li><a href="#contact" class="nav__cta" data-hover>Start a Project</a></li>
+      </ul>
+    </nav>
+
+    <main id="content">
+      <!-- HERO -->
+      <section class="section hero" id="hero">
+        <div class="hero__hud hero__hud--tl reveal">REC &#9679; 00:00:00:01</div>
+        <div class="hero__hud hero__hud--tr reveal">ISO 800 &nbsp;&#124;&nbsp; 24 FPS &nbsp;&#124;&nbsp; RAW</div>
+        <div class="hero__center">
+          <p class="hero__eyebrow reveal">VIDEOGRAPHER &nbsp;&#47;&#47;&nbsp; FILMMAKER &nbsp;&#47;&#47;&nbsp; DIRECTOR</p>
+          <h1 class="hero__title">
+            <span class="hero__line reveal">SAMEER</span>
+            <span class="hero__line hero__line--outline reveal">SINGH</span>
+          </h1>
+          <p class="hero__sub reveal">Crafting cinematic stories at the edge of reality — where light, motion and machine collide.</p>
+          <div class="hero__actions reveal">
+            <a class="btn" href="#work" data-hover>Explore the Work</a>
+            <a class="btn btn--ghost" href="#showreel" data-hover>&#9654; Play Showreel</a>
+          </div>
+        </div>
+        <div class="hero__scroll" aria-hidden="true">
+          <span>SCROLL TO ENTER</span>
+          <div class="hero__scroll-line"></div>
+        </div>
+      </section>
+
+      <!-- SHOWREEL -->
+      <section class="section" id="showreel">
+        <div class="sec-head reveal">
+          <span class="sec-head__num">01</span>
+          <h2>SHOWREEL <span class="accent">2026</span></h2>
+          <p>Ninety seconds through neon cities, drone canyons and human stories.</p>
+        </div>
+        <div class="reel reveal" data-hover>
+          <div class="reel__frame">
+            <div class="reel__corner reel__corner--tl"></div>
+            <div class="reel__corner reel__corner--tr"></div>
+            <div class="reel__corner reel__corner--bl"></div>
+            <div class="reel__corner reel__corner--br"></div>
+            <div class="reel__visual"></div>
+            <div class="reel__play"><span>&#9654;</span></div>
+            <div class="reel__meta">
+              <span>SS_SHOWREEL_2026.MP4</span>
+              <span>01:32 &nbsp;&#124;&nbsp; 4K &nbsp;&#124;&nbsp; 24 FPS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK -->
+      <section class="section" id="work">
+        <div class="sec-head reveal">
+          <span class="sec-head__num">02</span>
+          <h2>SELECTED <span class="accent">WORKS</span></h2>
+          <p>A curated transmission of recent films and commercial projects.</p>
+        </div>
+        <div class="work-grid">
+          <article class="card reveal tilt" data-hover>
+            <div class="card__visual card__visual--1"><span class="card__play">&#9654;</span></div>
+            <div class="card__body">
+              <span class="card__tag">AUTOMOTIVE FILM</span>
+              <h3>NEON DRIFT</h3>
+              <p>Midnight tokyo-style car film shot on anamorphic glass with FPV chase sequences.</p>
+              <span class="card__meta">02:47 &nbsp;&#124;&nbsp; 2026</span>
+            </div>
+          </article>
+          <article class="card reveal tilt" data-hover>
+            <div class="card__visual card__visual--2"><span class="card__play">&#9654;</span></div>
+            <div class="card__body">
+              <span class="card__tag">FASHION FILM</span>
+              <h3>AETHER</h3>
+              <p>Editorial fashion piece blending projection-mapped light with high-speed 1000fps capture.</p>
+              <span class="card__meta">01:58 &nbsp;&#124;&nbsp; 2026</span>
+            </div>
+          </article>
+          <article class="card reveal tilt" data-hover>
+            <div class="card__visual card__visual--3"><span class="card__play">&#9654;</span></div>
+            <div class="card__body">
+              <span class="card__tag">MUSIC VIDEO</span>
+              <h3>PULSE</h3>
+              <p>Single-take music video driven by audio-reactive lighting rigs and robotic camera arms.</p>
+              <span class="card__meta">03:21 &nbsp;&#124;&nbsp; 2025</span>
+            </div>
+          </article>
+          <article class="card reveal tilt" data-hover>
+            <div class="card__visual card__visual--4"><span class="card__play">&#9654;</span></div>
+            <div class="card__body">
+              <span class="card__tag">AERIAL / FPV</span>
+              <h3>HORIZON ZERO</h3>
+              <p>Long-range FPV expedition over glaciers and dunes — one drone, seven countries.</p>
+              <span class="card__meta">04:05 &nbsp;&#124;&nbsp; 2025</span>
+            </div>
+          </article>
+          <article class="card reveal tilt" data-hover>
+            <div class="card__visual card__visual--5"><span class="card__play">&#9654;</span></div>
+            <div class="card__body">
+              <span class="card__tag">BRAND FILM</span>
+              <h3>MONOLITH</h3>
+              <p>Launch film for a spatial-computing startup, mixing macro product work with CGI.</p>
+              <span class="card__meta">01:40 &nbsp;&#124;&nbsp; 2025</span>
+            </div>
+          </article>
+          <article class="card reveal tilt" data-hover>
+            <div class="card__visual card__visual--6"><span class="card__play">&#9654;</span></div>
+            <div class="card__body">
+              <span class="card__tag">DOCUMENTARY</span>
+              <h3>AFTERGLOW</h3>
+              <p>Short documentary on night-shift astronomers, graded in moonlit teal and sodium amber.</p>
+              <span class="card__meta">08:12 &nbsp;&#124;&nbsp; 2024</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section about" id="about">
+        <div class="sec-head reveal">
+          <span class="sec-head__num">03</span>
+          <h2>THE <span class="accent">OPERATOR</span></h2>
+        </div>
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p class="about__lead">I'm Sameer — a videographer obsessed with the frame between science fiction and documentary truth.</p>
+            <p>For eight years I've directed and shot films for automotive, fashion and tech brands, chasing light from Himalayan passes to server-room neon. My toolkit spans cinema cameras, FPV drones, robotic motion control and a color suite tuned for the dark.</p>
+            <p>Every project is treated like a world: designed, lit and scored to pull the viewer somewhere they haven't been.</p>
+          </div>
+          <div class="about__stats">
+            <div class="stat reveal"><span class="stat__value" data-count="120">0</span><span class="stat__plus">+</span><span class="stat__label">Projects Delivered</span></div>
+            <div class="stat reveal"><span class="stat__value" data-count="8">0</span><span class="stat__plus">yrs</span><span class="stat__label">Behind the Lens</span></div>
+            <div class="stat reveal"><span class="stat__value" data-count="40">0</span><span class="stat__plus">M+</span><span class="stat__label">Views Generated</span></div>
+            <div class="stat reveal"><span class="stat__value" data-count="15">0</span><span class="stat__plus">&nbsp;</span><span class="stat__label">Festival Selections</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <div class="sec-head reveal">
+          <span class="sec-head__num">04</span>
+          <h2>CAPABILITY <span class="accent">MATRIX</span></h2>
+        </div>
+        <div class="services">
+          <div class="service reveal tilt" data-hover>
+            <span class="service__num">S.01</span>
+            <h3>Direction</h3>
+            <p>Concept, treatment and world-building — from moodboard to final frame.</p>
+          </div>
+          <div class="service reveal tilt" data-hover>
+            <span class="service__num">S.02</span>
+            <h3>Cinematography</h3>
+            <p>Cinema camera packages, anamorphic and high-speed capture up to 1000fps.</p>
+          </div>
+          <div class="service reveal tilt" data-hover>
+            <span class="service__num">S.03</span>
+            <h3>Aerial &amp; FPV</h3>
+            <p>Licensed drone operations, long-range FPV and proximity flight cinematography.</p>
+          </div>
+          <div class="service reveal tilt" data-hover>
+            <span class="service__num">S.04</span>
+            <h3>Edit &amp; Color</h3>
+            <p>Narrative editing, sound design and HDR color grading in a calibrated suite.</p>
+          </div>
+          <div class="service reveal tilt" data-hover>
+            <span class="service__num">S.05</span>
+            <h3>Motion &amp; CGI</h3>
+            <p>Title design, 3D integration and screen graphics for a seamless hybrid look.</p>
+          </div>
+          <div class="service reveal tilt" data-hover>
+            <span class="service__num">S.06</span>
+            <h3>Post Supervision</h3>
+            <p>Pipeline management, delivery masters and versioning for every platform.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section contact" id="contact">
+        <div class="contact__inner reveal">
+          <p class="contact__eyebrow">TRANSMISSION OPEN</p>
+          <h2 class="contact__title">LET'S MAKE<br /><span class="accent">SOMETHING UNREAL</span></h2>
+          <p class="contact__sub">Commissions, collaborations and impossible ideas welcome.</p>
+          <a class="btn btn--big" href="mailto:sameergr20@gmail.com" data-hover>sameergr20@gmail.com</a>
+          <div class="contact__socials">
+            <a href="#" data-hover>INSTAGRAM</a>
+            <a href="#" data-hover>YOUTUBE</a>
+            <a href="#" data-hover>VIMEO</a>
+            <a href="#" data-hover>LINKEDIN</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>&copy; 2026 SAMEER SINGH — SS&#47;&#47;FILMS</span>
+        <span class="footer__coords">28.7041&deg; N, 77.1025&deg; E &nbsp;&#124;&nbsp; RENDERED IN REALTIME</span>
+      </footer>
+    </main>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
