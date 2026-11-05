@@ -1,32 +1,24 @@
-# Project: 3D Portfolio Website (Three.js + Vite)
+# 3D Portfolio Website (Three.js + Vite)
+
+Solo project. Live: https://sameersinghcode.github.io/3D-Portfolio-Website-1/. GitHub Actions deploys on every push to `main` that touches `MY-3D-Project1/`.
 
 ## Map
-- App lives in `MY-3D-Project1/` (run npm commands there).
-- `main.js` — whole scene: torus, 200 stars, `sam.png` avatar cube (var `jeff`), moon (`moon.jpg` + `normal.jpg`), `space.jpg` background, scroll-driven camera (`moveCamera`), `animate()` loop.
-- `index.html` — only `<canvas id="bg">`. `style.css` — 5 lines. `counter.js` — unused Vite boilerplate.
-- `scripts/shot.mjs` (repo root) — screenshots desktop + mobile.
+- App: `MY-3D-Project1/` (run npm there). Textures live in `public/` and are loaded by bare filename.
+- `main.js` holds the whole scene: torus, 200 stars, avatar cube `jeff` (sam.png), moon (moon.jpg + normal.jpg), space.jpg background, scroll camera `moveCamera()`, `animate()` loop.
+- `index.html` has only `<canvas id="bg">`. `style.css` is 5 lines. `vite.config.js` sets `base: './'`.
+- `docs/ROADMAP.md`: prioritized backlog with recipes. This is the source of truth for what to do next.
+- `scripts/shot.mjs`: optional desktop + mobile screenshots to `shots/`.
 
-## Commands
-- First in a fresh session: `cd MY-3D-Project1 && npm ci`
-- Dev: `npm run dev` · Build check: `npm run build`
-- Screenshots: `node scripts/shot.mjs` → `shots/desktop.png`, `shots/mobile.png` (gitignored)
+## Skills
+- `/next [id]`: top roadmap item → build → tick → commit → push (deploys).
+- `/ship [msg]`: commit + push current changes.
+- `/idea <text>`: append to the roadmap Inbox.
 
-## Known issues (not yet fixed)
-- Textures (`space.jpg`, `sam.png`, `moon.jpg`, `normal.jpg`) sit in project root, not `public/` → missing from `dist/` after build.
-- Mobile: avatar cube fills most of the screen (camera not adapted to portrait).
-- No resize handler; `<title>` is "Vite App"; favicon `/vite.svg`; no HTML content sections, so scroll animation never triggers.
+## Rules
+- Minimize tokens: terse replies, no recaps, read only the lines you need, don't explore beyond the Map.
+- Smallest correct change; fix root causes; no fallbacks.
+- Only check is `npm run build`. No screenshots unless asked.
+- Deploy = `git push origin HEAD:main`.
 
-## Working rules (user preferences)
-- Minimize tokens: terse replies, no recaps, read only needed lines.
-- Simple, surgical changes; fix root causes; fail fast; no fallbacks.
-- User often works from mobile: verify visual changes with `node scripts/shot.mjs` and send `shots/mobile.png`.
-- Commit/push only when asked.
-
-## Quick prompts (paste these)
-- **Task:** "Task: <change>. Use CLAUDE.md map, read only needed lines, smallest fix, run build, screenshot if visual, reply ≤3 lines."
-- **Look:** "Run shot.mjs, send mobile.png."
-- **Ship:** "Build, commit '<msg>', push."
-- **Handoff:** "Append a line to Session log (date — done — next), commit, push."
-
-## Session log
-- 2026-11-05 — added CLAUDE.md + scripts/shot.mjs — next: fix Known issues
+# Compact instructions
+Keep: current roadmap item, files changed, build errors. Drop: file dumps and research.
